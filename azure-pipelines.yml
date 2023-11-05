@@ -1,6 +1,13 @@
 pool: MyAgentPool
 - task: DotNetCoreCLI@2
   inputs:
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'test-mingo'
+    appType: 'webApp'
+    appName: 'DevOpsHelloWorld'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
     command: 'build'
 steps:
 - bash: echo hello world
