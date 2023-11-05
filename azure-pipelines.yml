@@ -1,3 +1,12 @@
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln'
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildconfiguration:'Release'
+
+steps:
+  - script:dotnet build --configuration $(buildConfiguration) 
+    displayname: 'dotnet build $(buildConfiguration)'
