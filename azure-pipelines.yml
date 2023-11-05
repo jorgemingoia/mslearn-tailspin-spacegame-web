@@ -5,8 +5,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  buildconfiguration:'Release'
+  buildConfiguration:'Release'
 
 steps:
-  - script:dotnet build --configuration $(buildConfiguration) 
+  - script: dotnet build --configuration $(buildConfiguration) 
     displayname: 'dotnet build $(buildConfiguration)'
